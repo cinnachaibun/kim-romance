@@ -1,0 +1,1058 @@
+# The game starts here.
+
+label start:
+
+    $ lookedaround = False # This is an example flag. It will come in handy later
+                           # in this script.
+
+    $ health = 5 # Health bar amounts the player starts off with.
+                 # Feel free to change the number.
+    $ morale = 5 # Remember that in Disco Elysium, Endurance and Volition govern
+                 # a player's amount of health and morale, respectively.
+    $ healthmax = 5 # Max amount of health. You can change this number here or later
+                    # in the story if you want to script a level up.
+    $ moralemax = 5 # Max amount of morale.
+
+    # Define different Modifiers to zero until they are unlocked by the player:
+    $ modifier1 = 0
+    #$ modifier2 = 0 # Unhide if you need more modifiers.
+    #$ modifier3 = 0
+
+    # Add music here:
+    #play music funny_theme fadeout 1.0 fadein 1.0 # Example. Unhide and use your
+                                                   # own music here.
+
+    # Show a background here. This uses a placeholder by default, but you can
+    # add a file (named either "bg room.png" or "bg room.jpg") to the
+    # images directory to show it.
+
+    #scene "images\background.png"
+
+    show black # places a black screen over the scene
+    with fade # The fade (must be on a new line) lets you fade to black from the
+              # main menu
+
+    window show #This displayed the textbox
+
+    #show kim happy #This shows a character sprite. A placeholder is used, but
+    # you can replace it by adding a file named "kim happy.png" to the images
+    # directory in declare.rpy under CHARACTERS.
+
+# Skills, sound effects, and voice acting tutorial:
+
+    play sound sfx_int # This plays a sound effect.
+                       # See: declare.rpy to replace the audio file.
+    "{color=[npc]}KIM KITSURAGI{/color} — The air outside holds a chill. The lieutenant is silent for a moment as he lights his nightly cigarette."
+
+    play sound sfx_mot
+    "{color=[mot]}PERCEPTION (HEARING){/color} — You hear the bustle of the area, foot traffic and low chatter that floats up towards the balcony."
+
+    play sound sfx_fys
+    "{color=[fys]}ELECTROCHEMISTRY{/color} — If Kim wasn't such a hard-ass, we could ask for a cigarette. You could go for a cigarette right about now."
+
+    play sound sfx_mot
+    "{color=[mot]}VOLITION{/color} — No. You've done well staying sober. Don't ruin it now."
+
+    play sound sfx_fys
+    "{color=[fys]}ELECTROCHEMISTRY{/color} — Cigarettes don't even count! They're not a real drug, just a fun, juicy pastime."
+
+    play sound sfx_int
+    "{color=[intel]}ENCYCLOPEDIA{/color} — The average cigarette contains 11 milligrams of nicotine, though your brand of choice, Red Astra, contains closer to 28. Nicotine has a large variety of negative health impacts, including-"
+
+    play sound sfx_fys
+    "{color=[fys]}ELECTROCHEMISTRY{/color} — Okay, we get it! We've got two hard-asses now."
+
+    nvl clear
+
+    "{color=[npc]}KIM KITSURAGI{/color} — He patiently tilts his head as he watches you. He's already getting used to your idiosyncrasies."
+
+    play sound sfx_psy
+    "{color=[psy]}INLAND EMPIRE{/color} — Something about that makes your breath flutter in your throat."
+
+    play sound sfx_fys
+    "{color=[fys]}HALF LIGHT{/color} — This feeling will devour you if you let it."
+
+    "{color=[youtext]}YOU — Swallow and focus on a mushy pile of brown snow on the street below. Smoke from Kim's cigarette floats across your vision.{/color}"
+
+    "{color=[youtext]}YOU — \“How do you think we did today?\”{/color}"
+
+    "{color=[npc]}KIM KITSURAGI{/color} — The lieutenant takes a drag of his cigarette and trains his eyes on your sad snow pile. \“We accomplished a lot today. I'm impressed with our progress.\” He flashes you a small smile."
+
+    play sound sfx_psy
+    "{color=[psy]}INLAND EMPIRE{/color} — There it is again. That feeling."
+
+    play sound sfx_fys
+    "{color=[fys]}HALF LIGHT{/color} — Run."
+
+    play sound sfx_int
+    "{color=[intel]}CONCEPTUALIZATION{/color} — Your insides are a butterfly garden."
+
+    play sound sfx_fys
+    "{color=[fys]}ELECTROCHEMISTRY{/color} — Impressing Kim feels almost as good as a drink! Almost."
+
+    nvl clear
+
+    "{color=[npc]}KIM KITSURAGI{/color} — \“We explored the coast extensively.\” He raises an eyebrow in your direction. {p}{p}\“We interviewed the residents of the fishing village, found a secret passage in the Whirling that could be connected to our case, retrieved your gun, reported a body on the boardwalk, moved some at-risk youth to a safer shelter, and ran around looking for cryptids.\”"
+
+    play sound sfx_int
+    "{color=[intel]}RHETORIC{/color} — The last point was sarcastic, though with all you *actually* accomplished, he doesn't mind too much."
+    
+    play sound sfx_fys
+    "{color=[fys]}PHYSICAL INSTRUMENT{/color} — Except the running. He did not enjoy all the running. He doesn't have the training you do."
+
+    play sound sfx_int
+    "{color=[intel]}RHETORIC{/color} — And by 'training,' he means consuming enough substances to give yourself near-total amnesia."
+
+    play sound sfx_fys
+    "{color=[fys]}ELECTROCHEMISTRY{/color} — Is everyone here a total hard-ass?"
+
+    menu (nvl=True):
+        "{color=[textnorm]}1. -{/color} \“So what you're saying is that we're supercops?\”":
+            "{color=[youtext]}YOU — \“So what you're saying is that we're supercops?\”{/color}{nw}"
+    
+        "{color=[textnorm]}2. -{/color} \“So what you're saying is that we make a good team?\”":
+            "{color=[youtext]}YOU — \“So what you're saying is that we make a good team?\”{/color}{nw}"
+   
+        "{color=[textnorm]}3. -{/color} \“So what you're saying is that we're decently competent at our jobs?\”":
+            "{color=[youtext]}YOU — \“So what you're saying is that we're decently competent at our jobs?\”{/color}{nw}"
+    
+    "{color=[npc]}KIM KITSURAGI{/color} — The light bounces off his lenses as he pulls on his cigarette. \“More or less.\” You see him shoot you a little smile."
+
+    nvl clear
+
+    play sound sfx_psy
+    "{color=[psy]}ESPRIT DE CORPS{/color} — Despite your fondness for stereo-investigations, you do good police work, he thinks."
+
+# Fix this later:
+
+    menu (nvl=True):
+        "{color=[textnorm]}1. -{/color} \“Do you have an extra cigarette?\”":
+
+            "{color=[youtext]}YOU — \“Do you have an extra cigarette?\”{/color}{nw}"
+
+            menu (nvl=True):
+                "{color=[npc]}KIM KITSURAGI {/color} — He shakes his head. \“As I've said before, I only carry one cigarette to have while going over my notes.\”"
+
+                "{color=[textnorm]}1. -{/color} “About what we talked about earlier…” (Proceed.)":
+
+                    jump questionearlier # Takes you back to the choice with the same
+                                    # label name.
+
+        "{color=[textnorm]}2. -{/color} \“Tell me again how impressed you are with me?\”":
+
+            "{color=[youtext]}YOU — \“Tell me again how impressed you are with me?\”{/color}{nw}"
+
+            menu (nvl=True):
+                "{color=[npc]}KIM KITSURAGI {/color} — \“I'm not sure that's a good idea, detective. Wouldn't want you to get a big head.\” He cracks a light smile to let you know it's a joke."
+
+                "{color=[textnorm]}1. -{/color} “About what we talked about earlier…” (Proceed.)":
+
+                    jump questionearlier # Takes you back to the choice with the same
+                                    # label name.
+
+        "{color=[textnorm]}3. -{/color} \“About what we talked about earlier…\” (Proceed.)":  
+
+            label questionearlier:
+
+                "{color=[youtext]}YOU — “About what we talked about earlier…” (Proceed.){/color}{nw}"
+
+# More text time:
+    "{color=[npc]}KIM KITSURAGI{/color} — \“We talk about many things, detective. What specifically are you referring to?\”"
+
+    play sound sfx_psy
+    "{color=[psy]}SUGGESTION{/color} — Do you actually want to talk about this?"
+
+    play sound sfx_psy
+    "{color=[psy]}EMPATHY{/color} — Kim won't judge you. He understands what it's like, to feel this way."
+
+    play sound sfx_fys
+    "{color=[fys]}HALF LIGHT{/color} — There's no going back once you say it."
+
+# Skill defining:
+
+    $ intellect = 1
+    $ psyche = 5
+    $ physique = 4
+    $ motorics = 2
+
+    # Defines the 24 skills:
+    $ logic = intellect # "Logic is equal to the player's current Intellect."
+    $ encyclopedia = intellect
+    $ rhetoric = intellect
+    $ drama = intellect
+    $ conceptualization = intellect
+    $ visual_calculus = intellect
+
+    $ volition = psyche
+    $ inland_empire = psyche
+    $ empathy = psyche
+    $ authority = psyche
+    $ esprit_de_corps = psyche
+    $ suggestion = psyche
+
+    $ endurance = physique
+    $ pain_threshold = physique
+    $ physical_instrument = physique
+    $ electrochemistry = physique
+    $ shivers = physique
+    $ half_light = physique
+
+    $ hand_eye_coordination = motorics
+    $ perception = motorics
+    $ reaction_speed = motorics
+    $ savoir_faire = motorics
+    $ interfacing = motorics
+    $ composure = motorics
+
+# Fix this later:
+
+    menu (nvl=True):
+        "{color=[textnorm]}1. -{/color} \“How you became so cool.\”":
+            "{color=[youtext]}YOU — \“How you became so cool.\”{/color}{nw}"
+
+            "{color=[npc]}KIM KITSURAGI{/color} — \“I told you.\” He flicks the ash off his cigarette and takes another drag. \“This isn't cool. It's unhealthy.\”" 
+    
+        "{color=[textnorm]}2. -{/color} \“How you felt about working in the Juvenile Crime Unit.\”":
+            "{color=[youtext]}YOU — \“How you felt about working in the Juvenile Crime Unit.\”{/color}{nw}"
+
+            "{color=[npc]}KIM KITSURAGI{/color} — His eyes harden behind his lenses. \“I don't want to discuss that right now.\”"
+
+                # Return a random integer between 2 and 12. We use a 2 as the lowest
+                # number because the lowest you can roll with a 2d6 is "snake eyes" (2).
+
+            $ roll2d6 = renpy.random.randint(2, 12) # Rolling die...
+
+            if roll2d6+authority+psyche >14: # "If the roll+endurance+physique
+                                            # is greater than 9." Making the number
+                                            # larger (or smaller) makes it harder
+                                            # (or easier) to succeed a roll.
+                play sound sfx_psy
+                "{color=[psy]}AUTHORITY{/color} {color=[check]}[[Heroic: Success]{/color}
+                — Something about the way he responds makes you feel it would be better not to try."
+            else:
+                play sound sfx_psy
+                "{color=[psy]}AUTHORITY{/color} {color=[check]}[[Heroic: Failure]{/color}
+                — His eyebrow dares you to try."
+   
+        "{color=[textnorm]}3. -{/color} \“How you're part of the homo-sexual underground.\”":
+            "{color=[youtext]}YOU — \“How you're part of the homo-sexual underground.\”{/color}{nw}"    
+
+# More text time:
+
+    play sound sfx_psy
+    "{color=[psy]}SUGGESTION{/color} — He didn't expect you to say that."
+
+    play sound sfx_psy
+    "{color=[psy]}INLAND EMPIRE{/color} — He should have."
+
+    "{color=[npc]}KIM KITSURAGI{/color} — \“I was trying to spare you another mind project when I told you that.\” He sighs."
+
+    play sound sfx_int
+    "{color=[intel]}DRAMA{/color} — Nothing can escape our yearning for the truth."
+
+    "{color=[npc]}KIM KITSURAGI{/color} — \“What more do you want to know?\”"
+
+    play sound sfx_int
+    "{color=[intel]}LOGIC{/color} — Everything."
+
+    "{color=[youtext]}YOU — \“Everything.\”{/color}"
+
+    "{color=[npc]}KIM KITSURAGI{/color} — That startles a half-smile from him. \“Okay. Where should I start?\”"
+
+                # Return a random integer between 2 and 12. We use a 2 as the lowest
+                # number because the lowest you can roll with a 2d6 is "snake eyes" (2).
+
+    $ roll2d6 = renpy.random.randint(2, 12) # Rolling die...
+
+    if roll2d6+encyclopedia+intellect >9: # "If the roll+endurance+physique
+                                            # is greater than 9." Making the number
+                                            # larger (or smaller) makes it harder
+                                            # (or easier) to succeed a roll.
+        play sound sfx_int
+        "{color=[intel]}ENCYCLOPEDIA{/color} {color=[check]}[[Medium: Success]{/color}
+        — Start with what you know."
+    else:
+        play sound sfx_int
+        "{color=[intel]}ENCYCLOPEDIA{/color} {color=[check]}[[Medium: Failure]{/color}
+        — How are you supposed to know where to start if you know nothing?"
+
+    menu (nvl=True):
+        "{color=[textnorm]}1. -{/color} \“Uh… what's it like being underground?\”":
+            "{color=[youtext]}YOU — \“Uh… what's it like being underground?\”{/color}{nw}"
+
+            "{color=[npc]}KIM KITSURAGI{/color} — \“You make it sound like we're mole-people.\” He pulls on his cigarette."
+
+            play sound sfx_int
+            "{color=[intel]}DRAMA{/color} — He's teasing you, sire."
+    
+        "{color=[textnorm]}2. -{/color} \“What's it like being part of the underground?\”":
+            "{color=[youtext]}YOU — \“What's it like being part of the underground?\”{/color}{nw}"
+
+    "{color=[npc]}KIM KITSURAGI{/color} — \“It was hard, at first. As a kid, I wanted so badly to be *normal*. No questions about my ancestors, or being picked on for my glasses, or wondering if I liked girls.\”
+    {p}{p}\“But the older I've gotten, the easier it's become. Not because Revachol has gotten kinder, necessarily. I guess I've gotten thicker skin. And I've embraced who I am.\”"
+
+    "{color=[youtext]}YOU — \“How did you do that?\”{/color}"
+
+    nvl clear
+
+    "{color=[npc]}KIM KITSURAGI{/color} — \““The same way you don't let anyone tell you what to wear.\” His eyes scan your outfit as his mouth twitches up. 
+    {p}{p}\“If you want to survive in this world as yourself, you learn not to take any shit.\”
+    {p}{p}\“Especially when you work with delinquents.\”
+    {p}{p}\“I like knowing I'm not alone. There's a whole community of homo-sexuals. And other things.\”"
+
+
+
+    menu (nvl=True):
+        
+        "{color=[textnorm]}1. -{/color} \“Other things?\”":
+
+            "{color=[youtext]}YOU — \“Other things?\”{/color}{nw}"
+
+            menu (nvl=True):
+                "{color=[npc]}KIM KITSURAGI{/color} — \“There are other identities and terms besides homo-sexual.\”"
+
+                "{color=[textnorm]}1. -{/color} \“Community?\”":
+
+                    jump questionmetwo # Takes you back to the choice with the same
+                                    # label name.
+
+# Fix this later:
+
+        "{color=[textnorm]}2. -{/color} \“Community?\”":
+
+            "{color=[youtext]}YOU — \““Community?\”{/color}{nw}"
+
+            "{color=[npc]}KIM KITSURAGI{/color} — \“It's not just me. That's why it's the homo-sexual *underground* and not just a homo-sexual.\”"
+
+            $ roll2d6 = renpy.random.randint(2, 12) # Rolling die...
+
+            if roll2d6+logic+intellect >7: # "If the roll+endurance+physique
+                                            # is greater than 9." Making the number
+                                            # larger (or smaller) makes it harder
+                                            # (or easier) to succeed a roll.
+                play sound sfx_int
+                "{color=[intel]}LOGIC{/color} {color=[check]}[[Medium: Success]{/color}
+                — The smoker on the balcony could be part of the underground."
+
+                "{color=[youtext]}YOU — \“What about the smoker on the balcony? Could he be part of the underground?\”{/color}"
+
+                "{color=[npc]}KIM KITSURAGI{/color} — \“Absolutely.\”"
+
+                play sound sfx_int
+                "{color=[intel]}RHETORIC{/color} — Finally, he thinks."
+            else:
+                play sound sfx_int
+                "{color=[intel]}LOGIC{/color} {color=[check]}[[Medium: Failure]{/color}
+                — You've never met anyone else that could possibly be part of the underground."
+
+            menu (nvl=True):
+                "{color=[textnorm]}1. -{/color} \Other things?\”":
+
+                    jump questionmeone
+            
+            label questionmeone:
+
+                "{color=[youtext]}YOU — \“Other things?\”{/color}{nw}"
+
+                "{color=[npc]}KIM KITSURAGI{/color} — \“There are other identities and terms besides homo-sexual.\”"
+
+            label questionmetwo:
+
+                "{color=[youtext]}YOU — \“Community?\”{/color}{nw}"
+
+                "{color=[npc]}KIM KITSURAGI{/color} — \“It's not just me. That's why it's the homo-sexual *underground* and not just a homo-sexual.\”"
+
+                $ roll2d6 = renpy.random.randint(2, 12) # Rolling die...
+
+                if roll2d6+logic+intellect >7: # "If the roll+endurance+physique
+                                            # is greater than 9." Making the number
+                                            # larger (or smaller) makes it harder
+                                            # (or easier) to succeed a roll.
+                    play sound sfx_int
+                    "{color=[intel]}LOGIC{/color} {color=[check]}[[Medium: Success]{/color}
+                    — The smoker on the balcony could be part of the underground."
+
+                    "{color=[youtext]}YOU — \“What about the smoker on the balcony? Could he be part of the underground?\”{/color}"
+
+                    "{color=[npc]}KIM KITSURAGI{/color} — \“Absolutely.\”"
+
+                    play sound sfx_int
+                    "{color=[intel]}RHETORIC{/color} — Finally, he thinks."
+                else:
+                    play sound sfx_int
+                    "{color=[intel]}LOGIC{/color} {color=[check]}[[Medium: Failure]{/color}
+                    — You've never met anyone else that could possibly be part of the underground."
+
+# More text time:
+
+    "{color=[npc]}KIM KITSURAGI{/color} — The lieutenant dangles his cigarette between his fingers and breathes out chestnut-scented smoke. His gaze follows a couple walking down the snowy street below, hands intertwined."
+
+    $ roll2d6 = renpy.random.randint(2, 12) # Rolling die...
+
+    if roll2d6+composure+motorics >11: # "If the roll+endurance+physique
+                                            # is greater than 9." Making the number
+                                            # larger (or smaller) makes it harder
+                                            # (or easier) to succeed a roll.
+        play sound sfx_mot
+        "{color=[mot]}COMPOSURE{/color} {color=[check]}[[Challenging: Success]{/color}
+        — He looks, at first glance, like the picture of collectedness. But you, a detective born anew who has spent every waking hour these last three days in Kim's company, know that this is a facade."
+
+        play sound sfx_psy
+        "{color=[psy]}EMPATHY{/color} — This conversation is making him nervous. It's very rare for him to talk about this topic so openly."
+
+    else:
+        play sound sfx_mot
+        "{color=[mot]}COMPOSURE{/color} {color=[check]}[[Challenging: Failure]{/color}
+        — He looks like the picture of collectedness."
+
+    "{color=[npc]}KIM KITSURAGI{/color} — He opens his mouth as if to speak and promptly closes it. He is considering his next words carefully."
+
+    "{color=[youtext]}YOU — \“Centim for your thoughts?\”{/color}"
+
+    "{color=[npc]}KIM KITSURAGI{/color} — \“Khm.\” The lieutenant clears his throat. \“Why are you so curious about this, detective?\”"
+
+    play sound sfx_psy
+    "{color=[psy]}EMPATHY{/color} — Oh boy."
+
+# Fix later:
+
+    menu (nvl=True):
+        "{color=[fys]}ELECTROCHEMISTRY{/color} — You know exactly why!"
+
+        "{color=[textnorm]}1. -{/color} \“I just want to learn more about the world.\”":
+
+            "{color=[youtext]}YOU — “I just want to learn more about the world.”{/color}{nw}"
+
+            menu (nvl=True):
+                "{color=[npc]}KIM KITSURAGI{/color} — \“I'm sure you do.\”" 
+
+                "{color=[textnorm]}2. -{/color} \“I just want to learn more about you, Kim.\”":
+
+                    jump questionmorekim
+
+                "{color=[textnorm]}3. -{/color} \“I've been having so many feelings.\” (Proceed.)":
+
+                    jump questionfeelings # Takes you back to the choice with the same
+                                    # label name.
+
+        "{color=[textnorm]}2. -{/color} \“I just want to learn more about you, Kim.\”":
+
+            "{color=[youtext]}YOU — \“I just want to learn more about you, Kim.\”{/color}{nw}"
+
+            menu (nvl=True):
+                "{color=[npc]}KIM KITSURAGI{/color} — He taps his finger on his cigarette. The light at the end of it reflects in his glasses. \“Do you?\”" 
+
+                "{color=[textnorm]}1. -{/color} \“I just want to learn more about the world.\”":
+
+                    jump questionmoreworld
+                
+                "{color=[textnorm]}3. -{/color} \“I've been having so many feelings.\” (Proceed.)":
+
+                    jump questionfeelings
+            
+        "{color=[textnorm]}3. -{/color} \“I've been having so many feelings.\” (Proceed.)":
+
+            label questionmoreworld:
+
+                "{color=[youtext]}YOU — \“I just want to learn more about the world.\”{/color}"
+
+                "{color=[npc]}KIM KITSURAGI{/color} — \“I'm sure you do.\”"
+          
+            label questionmorekim:
+
+                "{color=[youtext]}YOU — \“I just want to learn more about you, Kim.\”{/color}"
+
+                "{color=[npc]}KIM KITSURAGI{/color} — He taps his finger on his cigarette. The light at the end of it reflects in his glasses. \“Do you?\”" 
+
+            label questionfeelings:
+
+                "{color=[youtext]}YOU — \“I've been having so many feelings.\” (Proceed.){/color}{nw}"
+
+# More text time:
+
+    play sound sfx_fys
+    "{color=[fys]}PHYSICAL INSTRUMENT{/color} — Feelings? What is happening to you?!"
+
+    "{color=[npc]}KIM KITSURAGI{/color} — \“Feelings?\” He arches a brow and pulls on his cigarette."
+
+    "{color=[youtext]}YOU — Nod. \“They're all so confusing.\”{/color}"
+
+    "{color=[npc]}KIM KITSURAGI{/color} — \“What kind of feelings?\”"
+
+    "{color=[youtext]}YOU — \“At first, they were about the ex-something. I think they're still kinda about the ex-something.\”{/color}
+    {p}{p}\“But then we talked to the smoker and he was so *interesting*, and those eyes asked if I was bi-curious, and we played Suzerainty and talked about your motor carriage.\”
+    {p}{p}\“So now I'm confused.\”"
+
+
+    menu (nvl=True):
+        "{color=[npc]}KIM KITSURAGI{/color} — \“What does Suzerainty and my Kineema have to do with this?\” He takes his glasses off and cleans them. His cigarette hangs limply from his lips."
+
+        "{color=[textnorm]}1. -{/color} \“They don't. I was just testing you.\”":
+
+            "{color=[youtext]}YOU — \“They don't. I was just testing you.\”{/color}{nw}"
+
+            menu (nvl=True):
+                "{color=[npc]}KIM KITSURAGI{/color} — \“Oh. Alright.\” He seems almost disappointed by your answer."
+
+                "{color=[textnorm]}1. -{/color} \“They made me feel things.\” (Proceed.)":
+
+                    jump questionme # Takes you back to the choice with the same
+                                    # label name.
+
+        "{color=[textnorm]}2. -{/color} \“They made me feel things.\” (Proceed.)":
+
+            label questionme:
+
+                "{color=[youtext]}YOU — \“They made me feel things.\” (Proceed.){/color}{nw}"
+
+    play sound sfx_fys
+    "{color=[fys]}ENDURANCE{/color} — Don't do this. You still have a chance to preserve your dignity."
+
+    play sound sfx_psy
+    "{color=[psy]}INLAND EMPIRE{/color} — Is this really what you want?"
+
+    "{color=[npc]}KIM KITSURAGI{/color} — \“I thought as much, given our conversation so far. What did they make you feel, exactly?\”"
+
+    play sound sfx_psy
+    "{color=[psy]}ESPRIT DE CORPS{/color} — Like you are connected with your half-brother."
+
+    play sound sfx_fys
+    "{color=[fys]}ELECTROCHEMISTRY{/color} — Like it's been too long since you last had *fun* with someone."
+
+    play sound sfx_int
+    "{color=[intel]}CONCEPTUALIZATION{/color} — Like you could build a tiny corner of the world together."
+
+    $ roll2d6 = renpy.random.randint(2, 12) # Rolling die...
+
+    if roll2d6+empathy+psyche >11: # "If the roll+endurance+physique
+                                            # is greater than 9." Making the number
+                                            # larger (or smaller) makes it harder
+                                            # (or easier) to succeed a roll.
+        play sound sfx_psy
+        "{color=[psy]}EMPATHY{/color} {color=[check]}[[Challenging: Success]{/color}
+        — The lieutenant is apprehensive for your answer. It could change things between you."
+    else:
+        play sound sfx_psy
+        "{color=[psy]}EMPATHY{/color} {color=[check]}[[Challenging: Failure]{/color}
+        — The lieutenant awaits your reply."
+
+# Fix this later:
+
+    menu (nvl=True):
+        "{color=[textnorm]}1. -{/color} \“Like we're half-brothers, somehow.\”":
+            "{color=[youtext]}YOU — \“Like we're half-brothers, somehow.\”{/color}{nw}"
+
+            "{color=[npc]}KIM KITSURAGI{/color} — He looks you up and down stoically. \“If that's what you'd like to believe.\”"
+    
+        "{color=[textnorm]}2. -{/color} \“Like I need to have some fun, ASAP.\”":
+            "{color=[youtext]}YOU — \“Like I need to have some fun, ASAP.\”{/color}{nw}"
+
+            "{color=[npc]}KIM KITSURAGI{/color} — \“There will be time for fun after the case, I'm sure.\”"
+
+            play sound sfx_int
+            "{color=[intel]}RHETORIC{/color} — He doesn't seem to have picked up on your insinuation."
+
+            play sound sfx_psy
+            "{color=[psy]}VOLITION{/color} — Or he is ignoring it."
+   
+        "{color=[textnorm]}3. -{/color} \“Like we could build something together, metaphorically.\”":
+            "{color=[youtext]}YOU — \“Like we could build something together, metaphorically.\”{/color}{nw}"
+
+            "{color=[npc]}KIM KITSURAGI{/color} — \“Right. Of course.\” He glances at his cigarette."
+
+            play sound sfx_psy
+            "{color=[psy]}EMPATHY{/color} — He thinks you're joking."
+
+        "{color=[textnorm]}4. -{/color} \“Like you're exactly who I needed to meet, before.\”":
+            "{color=[youtext]}YOU — \“Like you're exactly who I needed to meet, before.\”{/color}{nw}"
+
+# More text time:
+
+    "{color=[npc]}KIM KITSURAGI{/color} — \“Before?\” He's avoiding your gaze."
+
+    "{color=[youtext]}YOU — \“When I first thought it, I meant when I woke up a few days ago. But honestly, I think you're who I needed to meet before I lost my memory, too.\”{/color}
+    {p}{p}\“If I could go back and change it, I would've met you sooner.\”"
+
+    play sound sfx_psy
+    "{color=[psy]}EMPATHY{/color} — The lieutenant focuses on the slim white of the cigarette between his fingers as his ears tinge red."
+
+    "{color=[npc]}KIM KITSURAGI{/color} — \“Why is that?\”"
+
+# Fix this later:
+
+    menu (nvl=True):
+        "{color=[intel]}CONCEPTUALIZATION{/color} — That's a good question. Why *is* that?"
+
+        "{color=[textnorm]}1. -{/color} \“No idea. I'm just making things up as I go.\”":
+
+            "{color=[youtext]}YOU — “No idea. I'm just making things up as I go.”{/color}{nw}"
+
+            menu (nvl=True):
+                "{color=[npc]}KIM KITSURAGI{/color} — \“I can't say that surprises me.\” A fleeting smile crosses his lips." 
+
+                "{color=[textnorm]}2. -{/color} \“You could've knocked some sense into me.\”":
+
+                    jump questionmoreknocked
+
+                "{color=[textnorm]}3. -{/color} \“You just seem to get me.” (Proceed.)":
+
+                    jump questionget # Takes you back to the choice with the same
+                                    # label name.
+
+        "{color=[textnorm]}2. -{/color} \“You could've knocked some sense into me.\”":
+
+            "{color=[youtext]}YOU — \“You could've knocked some sense into me.\”{/color}{nw}"
+
+            menu (nvl=True):
+                "{color=[npc]}KIM KITSURAGI{/color} — \“Don't put yourself down, detective. You seem to be able to pull yourself together, when you really need to.\”" 
+
+                "{color=[textnorm]}1. -{/color} \“No idea. I'm just making things up as I go.\”":
+
+                    jump questionmoremakingup
+                
+                "{color=[textnorm]}3. -{/color} \“You just seem to get me.” (Proceed.)":
+
+                    jump questionget
+            
+        "{color=[textnorm]}3. -{/color} \“You just seem to get me.” (Proceed.)":
+
+            label questionmoremakingup:
+
+                "{color=[youtext]}YOU — \“No idea. I'm just making things up as I go.\”{/color}"
+
+                "{color=[npc]}KIM KITSURAGI{/color} — \“I can't say that surprises me.\” A fleeting smile crosses his lips."
+          
+            label questionmoreknocked:
+
+                "{color=[youtext]}YOU — \“You could've knocked some sense into me.\”{/color}"
+
+                "{color=[npc]}KIM KITSURAGI{/color} — \“Don't put yourself down, detective. You seem to be able to pull yourself together, when you really need to.\”" 
+
+            label questionget:
+
+                "{color=[youtext]}YOU — \“You just seem to get me.” (Proceed.){/color}{nw}"
+
+# More text time:
+
+    nvl clear
+
+    "{color=[youtext]}YOU — \“I feel like we work well together. Not just as police partners, though that too.\”{/color}
+    {p}{p}\“You've been so patient with me while I sort through all my shit. You could have solved the case on your own, or only put up with me enough to be professional. But you've been so helpful.\”
+    {p}{p}\“And you're so *cool*. God, you're so cool.\”
+
+    {p}{p}\“You're the coolest person I know. Which isn't saying much, I guess, since I've forgotten everything. But it's true.\”"
+
+    play sound sfx_fys
+    "{color=[fys]}PHYSICAL INSTRUMENT{/color} — What are you doing, son?!"
+
+    play sound sfx_psy
+    "{color=[psy]}INLAND EMPIRE{/color} — Stop while you can."
+
+    play sound sfx_fys
+    "{color=[fys]}HALF LIGHT{/color} — It's too late for that."
+
+    play sound sfx_fys
+    "{color=[fys]}SHIVERS{/color} — A cold wind gathers in the crevices of the city. It sweeps over the arcing bow of shiny sloops, across the unmoving paws of apex predators, between the slatted boards of long-gone indotribes. Every person of Martinaise feels it blow through."
+
+    play sound sfx_fys
+    "{color=[fys]}SHIVERS{/color} — I LOVE ALL OF MY CHILDREN BECAUSE THEY LOVE ME IN RETURN."
+
+    nvl clear
+
+    "{color=[youtext]}YOU — \“And you care so much for Revachol, I can tell. You're a true *Vacholiere*. You would do anything for these people, this city.\”{/color}
+    {p}{p}\“And you're a torque dork! And you're so competitive when we play Suzerainity, and you secretly like hearing about cryptids, and-\”"
+    
+    "{color=[npc]}KIM KITSURAGI{/color} — \“Lieutenant double-yefreitor.\” He interrupts you before you can continue."
+
+    play sound sfx_fys
+    "{color=[fys]}ENDURANCE{/color} — You needed to take a breath soon anyway."
+
+    play sound sfx_mot
+    "{color=[mot]}COMPOSURE{/color} — Oh god, what have you done?"
+
+    play sound sfx_psy
+    "{color=[psy]}EMPATHY{/color} — His ears are halogen-bright."
+
+    play sound sfx_psy
+    "{color=[psy]}INLAND EMPIRE{/color} — You can almost see the smoke coming off them."
+
+
+# Fix this later!! (line 691):
+
+    nvl clear
+
+    menu (nvl=True):
+        "{color=[psy]}ESPRIT DE CORPS{/color} — His towering standards for professionalism are at war with his desire for true emotional connection."
+
+        "{color=[textnorm]}1. -{/color} \“But I wasn't finished.\”":
+
+            "{color=[youtext]}YOU — \“But I wasn't finished.\”{/color}{nw}"
+
+            menu (nvl=True):
+                "{color=[npc]}KIM KITSURAGI{/color} — \“I think that was plenty.\”{nw}" 
+
+                "{color=[intel]}CONCEPTUALIZATION{/color} — The smoke from his cigarette twines with the steam he's emitting, like the pale rolling in from the waterfront."
+
+                "{color=[textnorm]}2. -{/color} \“Was that too much?\”":
+
+                    jump questiontoomuch
+
+                "{color=[textnorm]}3. -{/color} \“Does that answer your question?\” (Proceed.)":
+
+                    jump questionanswer # Takes you back to the choice with the same
+                                    # label name.
+
+        "{color=[textnorm]}2. -{/color} \“Was that too much?\”":
+
+            "{color=[youtext]}YOU — \“Was that too much?\”{/color}{nw}"
+
+            menu (nvl=True):
+                "{color=[npc]}KIM KITSURAGI{/color} — He coughs into his hand. \“Just a bit.\”" 
+
+                "{color=[textnorm]}1. -{/color} \“But I wasn't finished.\”":
+
+                    jump questionfinish
+                
+                "{color=[textnorm]}3. -{/color} \“Does that answer your question?\” (Proceed.)":
+
+                    jump questionanswer
+            
+        "{color=[textnorm]}3. -{/color} \“Does that answer your question?\” (Proceed.)":
+
+            label questionfinish:
+
+                "{color=[youtext]}YOU — \“But I wasn't finished.\”{/color}"
+
+                "{color=[npc]}KIM KITSURAGI{/color} — \“I think that was plenty.\”"
+
+                play sound sfx_int
+                "{color=[intel]}CONCEPTUALIZATION{/color} — The smoke from his cigarette twines with the steam he's emitting, like the pale rolling in from the waterfront."
+
+          
+            label questiontoomuch:
+
+                "{color=[youtext]}YOU — \“Was that too much?\”{/color}"
+
+                "{color=[npc]}KIM KITSURAGI{/color} — He coughs into his hand. \“Just a bit.\”" 
+
+            label questionanswer:
+
+                "{color=[youtext]}YOU — \“Does that answer your question?\” (Proceed.){/color}{nw}"
+
+# More text time:
+
+    "{color=[npc]}KIM KITSURAGI{/color} — \“Mhm. I think so, yes.\”"
+
+    play sound sfx_int
+    "{color=[intel]}LOGIC{/color} — The lieutenant has not looked at you for over two minutes."
+
+    $ roll2d6 = renpy.random.randint(2, 12) # Rolling die...
+
+    if roll2d6+composure+motorics >5: # "If the roll+endurance+physique
+                                            # is greater than 9." Making the number
+                                            # larger (or smaller) makes it harder
+                                            # (or easier) to succeed a roll.
+        play sound sfx_mot
+        "{color=[mot]}COMPOSURE{/color} {color=[check]}[[Trivial: Success]{/color}
+        — Emotional openness makes him uncomfortable."
+    else:
+        play sound sfx_mot
+        "{color=[mot]}COMPOSURE{/color} {color=[check]}[[Trivial: Failure]{/color}
+        — He seems uncomfortable."
+
+    play sound sfx_psy
+    "{color=[psy]}EMPATHY{/color} — This is a hard conversation for him."
+
+# Fix this later:
+
+    menu (nvl=True):
+        "{color=[textnorm]}1. -{/color} \“This has been a great chat that changes nothing between us.\”":
+            "{color=[youtext]}YOU — \“This has been a great chat that changes nothing between us.\”{/color}{nw}"
+
+            "{color=[npc]}KIM KITSURAGI{/color} — \“...if that's what you'd prefer.\”"
+
+            $ roll2d6 = renpy.random.randint(2, 12) # Rolling die...
+
+            if roll2d6+suggestion+psyche >11: # "If the roll+endurance+physique
+                                            # is greater than 9." Making the number
+                                            # larger (or smaller) makes it harder
+                                            # (or easier) to succeed a roll.
+                play sound sfx_psy
+                "{color=[psy]}SUGGESTION{/color} {color=[check]}[[Challenging: Success]{/color}
+                — It seems the lieutenant would not prefer this."
+            else:
+                play sound sfx_psy
+                "{color=[psy]}SUGGESTION{/color} {color=[check]}[[Challenging: Failure]{/color}
+                — What would the lieutenant prefer?"
+    
+        "{color=[textnorm]}2. -{/color} \“What does this mean for us?\”":
+            "{color=[youtext]}YOU — \“What does this mean for us?\”{/color}{nw}"
+
+            "{color=[npc]}KIM KITSURAGI{/color} — \“I'm not sure.\” His voice is quiet and very tired."
+
+        "{color=[textnorm]}3. -{/color} \“Where do we go from here?\”":
+            "{color=[youtext]}YOU — \“Where do we go from here?\”{/color}{nw}"
+
+            "{color=[npc]}KIM KITSURAGI{/color} — \“Where else? The case. We can sort out our personal affairs once it's solved.\”"
+
+        "{color=[textnorm]}4. -{/color} \“Am I the only person who's ever felt this way?\” (Proceed.)":
+            "{color=[youtext]}YOU — \“Am I the only person who's ever felt this way?\”{/color}{nw}"
+
+    "{color=[npc]}KIM KITSURAGI{/color} — A brief smile despite himself. \“Of course not.\”"
+
+    "{color=[youtext]}YOU — \“Then who else?\”"
+
+    "{color=[npc]}KIM KITSURAGI{/color} — \“I have.\” He finally turns to you. \“It's perhaps a blessing and a curse that you're exactly my type.\”"
+
+    menu (nvl=True):
+        "{color=[textnorm]}1. -{/color} \“I'm satisfied with that answer.\”":
+            "{color=[youtext]}YOU — \“I'm satisfied with that answer.\”{/color}{nw}"
+
+            "{color=[npc]}KIM KITSURAGI{/color} — \“Good.\” He nods."
+    
+        "{color=[textnorm]}2. -{/color} \“You're my type, too.\”":
+            "{color=[youtext]}YOU — \“You're my type, too.\”{/color}{nw}"
+
+            "{color=[npc]}KIM KITSURAGI{/color} — \“I could assume.\” There's barely-concealed mirth in his eyes."
+   
+        "{color=[textnorm]}3. -{/color} \“I don't have a type.\”":
+            "{color=[youtext]}YOU — \“I don't have a type.\”{/color}{nw}"
+
+            "{color=[npc]}KIM KITSURAGI{/color} — \“That's alright,\” he says in a reassuring tone. \“You don't need to have a type.\”"
+
+        "{color=[textnorm]}4. -{/color} \“My type are people who smell like apricots and look like innocences.\”":
+            "{color=[youtext]}YOU — \“My type are people who smell like apricots and look like innocences.\”{/color}{nw}"
+
+            "{color=[npc]}KIM KITSURAGI{/color} — \“That's very specific.\” He looks at you impassively from behind the lenses of his glasses." 
+
+        "{color=[textnorm]}5. -{/color} \“Your type?\”":
+            "{color=[youtext]}YOU — \“Your type?\”{/color}{nw}"
+
+            "{color=[npc]}KIM KITSURAGI{/color} — \“Yes, my type. My romantic preferences.\”"
+
+# More text time:
+
+    "{color=[youtext]}YOU — \“But I thought your type was homo-sexual?\”"
+
+    "{color=[npc]}KIM KITSURAGI{/color} — The lieutenant lets out a heavy sigh. \“I am homo-sexual. That means I'm only attracted to men. But I find certain men more appealing than others. That's my type.”"
+
+    play sound sfx_fys
+    "{color=[fys]}ELECTROCHEMISTRY{/color} — Oh baby, now we're talking! Time for some *fun*."
+
+    $ roll2d6 = renpy.random.randint(2, 12) # Rolling die...
+
+    if roll2d6+empathy+psyche >7: # "If the roll+endurance+physique
+                                            # is greater than 9." Making the number
+                                            # larger (or smaller) makes it harder
+                                            # (or easier) to succeed a roll.
+        play sound sfx_psy
+        "{color=[psy]}EMPATHY{/color} {color=[check]}[[Easy: Success]{/color}
+        — He's not trying to convince you to do anything with him. He's sharing this because he cares."
+    else:
+        play sound sfx_psy
+        "{color=[psy]}EMPATHY{/color} {color=[check]}[[Easy: Failure]{/color}
+        — Sex doesn't seem like his goal."
+
+# Fix this later:
+
+    menu (nvl=True):
+        "{color=[textnorm]}1. -{/color} \“Maybe you should reconsider your type.\”":
+            "{color=[youtext]}YOU — \“Maybe you should reconsider your type.\”{/color}{nw}"
+
+            "{color=[npc]}KIM KITSURAGI{/color} — \“I'm not sure it works that way, but I think it's fine how it is.\”"
+    
+        "{color=[textnorm]}2. -{/color} \“Please, never reconsider your type.\”":
+            "{color=[youtext]}YOU — \“Please, never reconsider your type.\”{/color}{nw}"
+
+            "{color=[npc]}KIM KITSURAGI{/color} — \“I'm not sure it works that way, but I will do my best.\”"
+   
+        "{color=[textnorm]}3. -{/color} \“Type doesn't feel like a real word anymore.\”":
+            "{color=[youtext]}YOU — \“Type doesn't feel like a real word anymore.\”{/color}{nw}"
+
+            "{color=[npc]}KIM KITSURAGI{/color} — He barely suppresses another sigh. \“Maybe it's a sign we've been talking about this for too long.\”"
+
+        "{color=[textnorm]}4. -{/color} \“What makes me your type?\”":
+            "{color=[youtext]}YOU — \“What makes me your type?\”{/color}{nw}"
+
+# More text time:
+
+    play sound sfx_fys
+    "{color=[fys]}PHYSICAL INSTRUMENT{/color} — What's not to like? You're one big muscle-machine."
+
+    play sound sfx_mot
+    "{color=[mot]}SAVOIR FAIRE{/color} — Who knows how to get down with the best of them, superstar style."
+
+    play sound sfx_mot
+    "{color=[mot]}COMPOSURE{/color} — The lieutenant seems to be using his cigarette as something to do with his hands. Its flicker is barely noticeable anymore."
+
+    "{color=[npc]}KIM KITSURAGI{/color} — \“You fit the characteristics I am often attracted to.\” He looks very pointedly into the distance."
+
+    play sound sfx_fys
+    "{color=[fys]}ELECTROCHEMISTRY{/color} — Good enough for you, this is your chance to get something going."
+
+    play sound sfx_psy
+    "{color=[psy]}AUTHORITY{/color} — What an evasive answer. Assert yourself – don't let this slide."
+
+    play sound sfx_psy
+    "{color=[psy]}SUGGESTION{/color} — Get him to talk you up."
+
+# Fix this later:
+
+    menu (nvl=True):
+        "{color=[textnorm]}1. -{/color} \“That's awesome.\” (Move on.)":
+            "{color=[youtext]}YOU — \“That's awesome.\” (Move on.){/color}{nw}"
+
+            "{color=[npc]}KIM KITSURAGI{/color} — \“Good.\” He nods."
+    
+        "{color=[textnorm]}2. -{/color} [Endurance - Challenging 12]  \“What characteristics would those be, exactly?\”":
+            "{color=[youtext]}YOU — [Endurance - Challenging 12] \“What characteristics would those be, exactly?\”{/color}{nw}"
+
+            $ roll2d6 = renpy.random.randint(2, 12) # Rolling die...
+
+            if roll2d6+rhetoric+intellect >11: # "If the roll+endurance+physique
+                                            # is greater than 9." Making the number
+                                            # larger (or smaller) makes it harder
+                                            # (or easier) to succeed a roll.
+                "{color=[npc]}KIM KITSURAGI{/color} — \“You're not going to give this up, are you? Fine. I seem to prefer…\” He corrects his glasses. \“Larger men. With body hair. Who can hold a decent conversation.\”"
+
+                play sound sfx_fys
+                "{color=[fys]}HALF LIGHT{/color} — That's it? He made it seem like life or death."
+
+                $ roll2d6 = renpy.random.randint(2, 12) # Rolling die...
+
+                if roll2d6+empathy+psyche >7: # "If the roll+endurance+physique
+                                            # is greater than 9." Making the number
+                                            # larger (or smaller) makes it harder
+                                            # (or easier) to succeed a roll.
+                    play sound sfx_psy
+                    "{color=[psy]}EMPATHY{/color} {color=[check]}[[Easy: Success]{/color}
+                    — The lieutenant is wondering if it would be possible to melt into the floor."
+                else:
+                    play sound sfx_psy
+                    "{color=[psy]}EMPATHY{/color} {color=[check]}[[Easy: Failure]{/color}
+                    — The lieutenant looks incredibly embarrassed."
+
+                play sound sfx_int
+                "{color=[intel]}RHETORIC{/color} — *Decent conversation*? Should you be offended?"
+
+                play sound sfx_fys
+                "{color=[fys]}PHYSICAL INSTRUMENT{/color} — I told you! One big muscle-machine."
+            else:
+                play sound sfx_int
+                "{color=[intel]}RHETORIC{/color} {color=[check]}[[Challenging: Failure]{/color}
+                — Just take the compliment."
+
+
+    menu (nvl=True):
+        "{color=[textnorm]}1. -{/color} \“That's it?\”":
+            "{color=[youtext]}YOU — \“That's it?\”{/color}{nw}"
+
+            "{color=[npc]}KIM KITSURAGI{/color} — \“You'd be surprised how difficult it can be to find someone who meets that criteria.\” He sounds a little defensive."
+    
+        "{color=[textnorm]}2. -{/color} \“Thank you for telling me.\”":
+            "{color=[youtext]}YOU — \“Thank you for telling me.\”{/color}{nw}"
+
+            "{color=[npc]}KIM KITSURAGI{/color} — He pulls on his cigarette before he realizes it's nearly gone out. He shakes his head and idly twists it between two fingers."
+   
+        "{color=[textnorm]}3. -{/color} \“Thanks, I think.\”":
+            "{color=[youtext]}YOU — \“Thanks, I think.\”{/color}{nw}"
+
+            "{color=[npc]}KIM KITSURAGI{/color} — The fraction of a smirk in the corner of his mouth. \“Of course.\”"
+
+        "{color=[textnorm]}4. -{/color} \“Hell yes! That's so me!\”":
+            "{color=[youtext]}YOU — \“Hell yes! That's so me!\”{/color}{nw}"
+
+            "{color=[npc]}KIM KITSURAGI{/color} — The upward tilt of his mouth betrays his amusement. \“I know. As I said, you're exactly my type.\”"
+
+# More text time:
+
+    play sound sfx_fys
+    "{color=[fys]}ELECTROCHEMISTRY{/color} — You should make out now. It's the logical next step."
+
+    play sound sfx_int
+    "{color=[intel]}LOGIC{/color} — That doesn't seem like a smart decision, considering everything Kim has said."
+
+    play sound sfx_int
+    "{color=[intel]}DRAMA{/color} — And hasn't said."
+
+    "{color=[youtext]}YOU — \“Should we make out now?\”"
+
+    "{color=[npc]}KIM KITSURAGI{/color} — \“Absolutely not.\”"
+
+    play sound sfx_psy
+    "{color=[psy]}SUGGESTION{/color} — Why did you ask that?"
+
+    "{color=[npc]}KIM KITSURAGI{/color} — \“Regardless of our current… feelings, it would be incredibly unprofessional to act on them while we're working this case.\”"
+
+    play sound sfx_fys
+    "{color=[fys]}ELECTROCHEMISTRY{/color} — Hard-ass."
+
+    "{color=[npc]}KIM KITSURAGI{/color} — \“And I won't be a charity service for you to turn me into another ex-something. I can't.\”"
+
+    play sound sfx_fys
+    "{color=[fys]}PAIN THRESHOLD{/color} — He's been through that too many times."
+
+    "{color=[youtext]}YOU — \“So there's no chance for us?\”"
+
+    "{color=[npc]}KIM KITSURAGI{/color} — \“I didn't say that. Our first priority is the case. Once that's over and you've put in effort to improve and move on from your-\”" 
+    {p}{p}He pauses to consider his words, “\past hang-ups, we can reevaluate our relationship.\”"
+
+    $ roll2d6 = renpy.random.randint(2, 12) # Rolling die...
+
+    if roll2d6+empathy+psyche >9: # "If the roll+endurance+physique
+                                            # is greater than 9." Making the number
+                                            # larger (or smaller) makes it harder
+                                            # (or easier) to succeed a roll.
+        play sound sfx_psy
+        "{color=[psy]}EMPATHY{/color} {color=[check]}[[Medium: Success]{/color}
+        — He has grown too attached to you to simply let his feelings go."
+    else:
+        play sound sfx_psy
+        "{color=[psy]}EMPATHY{/color} {color=[check]}[[Medium: Failure]{/color}
+        — You have a chance."
+
+    play sound sfx_psy
+    "{color=[psy]}ESPRIT DE CORPS{/color} — He is a consummate professional."
+
+    play sound sfx_fys
+    "{color=[fys]}HALF LIGHT{/color} — To pursue Kim would mean to give up on apricot blossoms and video rentals. Are you ready for that?"
+
+    play sound sfx_psy
+    "{color=[psy]}SUGGESTION{/color} — Kim would not allow it otherwise."
+
+    "{color=[npc]}KIM KITSURAGI{/color} — The lieutenant looks at you in silence, a curious look in his eyes. \“Well then, detective. *Do* we have a chance?\”"
+
+    play sound sfx_int
+    "{color=[intel]}RHETORIC{/color} —  He's asking if you think you'll be able to do this."
+
+    play sound sfx_psy
+    "{color=[psy]}EMPATHY{/color} — He will understand if you can't."
+
+    play sound sfx_mot
+    "{color=[mot]}REACTION SPEED{/color} — But you will not get another chance if you decline him now."
+
+# Fix this later:
+
+    menu (nvl=True):
+        "{color=[textnorm]}1. -{/color} \“Yeah, we do.\” [Leave.]":
+            "{color=[youtext]}YOU — \“Yeah, we do.\” [Leave.]{/color}{nw}"
+
+            "{color=[npc]}KIM KITSURAGI{/color} — He smiles gently. \“Good. Now, let's focus on the case. We can discuss this in more detail after we solve it.\”"
+    
+        "{color=[textnorm]}2. -{/color} \“I'll have to think about it.\”":
+            "{color=[youtext]}YOU — \“I'll have to think about it.\”{/color}{nw}"
+
+            "{color=[npc]}KIM KITSURAGI{/color} — \“No. I won't have you distracted by this. You already have enough else going on as it is.\”"
+   
+        "{color=[textnorm]}3. -{/color} \“No, I don't think we do.\” [Leave.]":
+            "{color=[youtext]}YOU — \“No, I don't think we do.\” [Leave.]{/color}{nw}"
+
+            "{color=[npc]}KIM KITSURAGI{/color} — \“It's alright, I understand.\” He extinguishes his cigarette on the sole of his boot."
+
+            play sound sfx_psy
+            "{color=[psy]}EMPATHY{/color} — He really does. He doesn't hold this against you."
+
+            play sound sfx_psy
+            "{color=[psy]}ESPRIT DE CORPS{/color} — He would still throw himself in death's way for you."
+
+            "{color=[npc]}KIM KITSURAGI{/color} — \“Let's call it a night. Thank you for indulging me, lieutenant.\” 
