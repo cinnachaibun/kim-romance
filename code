@@ -1055,4 +1055,4 @@ label start:
             play sound sfx_psy
             "{color=[psy]}ESPRIT DE CORPS{/color} — He would still throw himself in death's way for you."
 
-            "{color=[npc]}KIM KITSURAGI{/color} — \“Let's call it a night. Thank you for indulging me, lieutenant.\” 
+            "{color=[npc]}KIM KITSURAGI{/color} — \“Let's call it a night. Thank you for indulging me, lieutenant.\”  
