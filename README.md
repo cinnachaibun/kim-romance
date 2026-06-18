@@ -5,6 +5,8 @@ you to romance Kim, so perhaps if you squint you'll feel like you're still playi
 
 I am using the Disco Framework by the incredible Katy133 on itch.io, and the game is written in and run through RenPy. I have included everything
 I think you may need to run this, but if I'm missing something, please let me know! My main issues come from having different dialogue choices 
-the player can choose from; I'm having a tough time allowing players to choose all the different options before moving on, like in the actual game. I have only changed the "script" file, everything else is untouched from the original and has only been included in case someone would like to test run the game.
+the player can choose from; I'm having a tough time allowing players to choose all the different options before moving on, like in the actual game. 
+
+I have only changed the "script" file, everything else is untouched from the original and has only been included in case someone would like to test run the game.
 
 I greatly appreciate any and all suggestions/help/criticisms! I do not know what I'm doing but I want this to work so badly. Do it for Kim!
