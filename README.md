@@ -7,4 +7,4 @@ I am using the Disco Framework by the incredible Katy133 on itch.io, and the gam
 I think you may need to run this, but if I'm missing something, please let me know! My main issues come from having different dialogue choices 
 the player can choose from; I'm having a tough time allowing players to choose all the different options before moving on, like in the actual game.
 
-I greatly appreciate any and all suggestions/help/criticisms! I do not know what I'm doing but I want this to work so badly. Do it for Kim
+I greatly appreciate any and all suggestions/help/criticisms! I do not know what I'm doing but I want this to work so badly. Do it for Kim!
